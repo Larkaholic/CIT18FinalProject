@@ -14,6 +14,10 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            clipPath: {
+                'diagonal-right': 'polygon(0 0, 100% 0, 100% 100%, 0 0%)',
+                'diagonal-left': 'polygon(0 0, 100% 100%, 0 100%, 0 0%)',
+              },
         },
     },
 
