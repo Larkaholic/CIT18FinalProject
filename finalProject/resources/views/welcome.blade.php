@@ -14,7 +14,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex flex-col min-h-screen max-h-screen">
-        <div class="absolute inset-0 opacity-30 -z-10">
+        <div class="absolute inset-0 opacity-40 -z-10">
             {{-- Background Images --}}
             <div class="flex m-0 p-0 h-full w-full">
                 <div class="w-full relative overflow-hidden">
@@ -33,12 +33,12 @@
         </div>
         <header class="w-full p-6 lg:p-8">
             <nav class="flex items-center justify-end gap-4">
-                <a
+                {{-- <a
                     href="{{ url('/home') }}"
                     class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                 >
                     Home
-                </a>
+                </a> --}}
                 @if (Route::has('login'))
                     @auth
                         <a
@@ -50,7 +50,7 @@
                     @else
                         <a
                             href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
+                            class="inline-block px-5 py-1.5 text-white  border border-white hover:border-red-700 rounded-md text-sm leading-normal"
                         >
                             Log in
                         </a>
@@ -58,7 +58,7 @@
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                                class="inline-block px-5 py-1.5 text-white bg-red-700 border border-red-700 hover:border-white rounded-md text-sm leading-normal">
                                 Register
                             </a>
                         @endif
@@ -67,7 +67,7 @@
             </nav>
         </header>
         <main class="flex-grow flex items-center justify-center p-6 lg:p-8 mt-0">
-            <div class="w-full lg:max-w-4xl text-center">
+            <div class="w-full lg:max-w-4xl text-center -mt-20">
                 <div class="relative mb-8">
                     <div class="relative flex items-center justify-center mb-12">
                         {{-- MovieVault Logo --}}
@@ -194,7 +194,7 @@
                             class="text-sm md:text-md w-2/3 lg:w-full md:w-2/3 sm:w-2/3 md:p-4 rounded-md shadow-md focus:ring focus:ring-gray-900 dark:text-gray-800 dark:bg-gray-200"
                         />
                     </div>
-                    <div class="text-lg leading-relaxed dark:text-gray-300 mt-12">
+                    <div class="text-lg leading-relaxed dark:text-white dark:bg-red-700 dark:bg-opacity-90 rounded-md p-8 mt-12">
                         <h1 class="text-xl md:text-3xl font-semibold mb-8 dark:text-white">Welcome to MovieVault!</h1>
                         <p class="text-sm sm:text-lg mb-4">
                             Discover, review, and organize your favorite movies. MovieVault is your personal cinema companion.
