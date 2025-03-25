@@ -191,15 +191,15 @@
                         <input
                             type="text"
                             placeholder="Search for movies..."
-                            class="w-2/3 lg:w-full p-4 rounded-md shadow-md focus:ring focus:ring-gray-900 dark:text-gray-800 dark:bg-gray-200"
+                            class="text-sm md:text-md w-2/3 lg:w-full md:w-2/3 sm:w-2/3 md:p-4 rounded-md shadow-md focus:ring focus:ring-gray-900 dark:text-gray-800 dark:bg-gray-200"
                         />
                     </div>
                     <div class="text-lg leading-relaxed dark:text-gray-300 mt-12">
-                        <h1 class="text-3xl font-semibold mb-8 dark:text-white">Welcome to MovieVault!</h1>
-                        <p class="mb-4">
+                        <h1 class="text-xl md:text-3xl font-semibold mb-8 dark:text-white">Welcome to MovieVault!</h1>
+                        <p class="text-sm sm:text-lg mb-4">
                             Discover, review, and organize your favorite movies. MovieVault is your personal cinema companion.
                         </p>
-                        <p>
+                        <p class="text-sm sm:text-lg">
                             Explore new releases, create watchlists, and connect with fellow movie enthusiasts.
                         </p>
                     </div>
