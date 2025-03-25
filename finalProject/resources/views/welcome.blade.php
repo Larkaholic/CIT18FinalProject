@@ -14,7 +14,23 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex flex-col min-h-screen max-h-screen">
-        
+        <div class="absolute inset-0 opacity-30 -z-10">
+            {{-- Background Images --}}
+            <div class="flex m-0 p-0 h-full w-full">
+                <div class="w-full relative overflow-hidden">
+                    <img src="images/poster_avatar_the_way_of_water.jpg" alt="Background Image 1" class="w-full h-full object-cover"  style="clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);">
+                </div>
+                <div class="w-full relative overflow-hidden 2xl:-ml-72 xl:-ml-64 lg:-ml-52 md:-ml-40 sm:-ml-32 -ml-24">
+                    <img src="images/poster_wicked.jpg" alt="Background Image 2" class="w-full h-full object-cover" style="clip-path: polygon(50% 0, 100% 0, 50% 100%, 0 100%);">
+                </div>
+                <div class="w-full relative overflow-hidden 2xl:-ml-72 xl:-ml-64 lg:-ml-52 md:-ml-40 sm:-ml-32 -ml-24">
+                    <img src="images/poster_mufasa_the_lion_king.jpg" alt="Background Image 2" class="w-full h-full object-cover" style="clip-path: polygon(50% 0, 100% 0, 50% 100%, 0 100%);">
+                </div>
+                <div class="w-full relative overflow-hidden 2xl:-ml-72 xl:-ml-64 lg:-ml-52 md:-ml-40 sm:-ml-32 -ml-24">
+                    <img src="images/poster_captain_america_brave_new_world.jpg" alt="Background Image 3" class="w-full h-full object-cover" style="clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);">
+                </div>
+            </div>
+        </div>
         <header class="w-full p-6 lg:p-8">
             <nav class="flex items-center justify-end gap-4">
                 <a
@@ -175,7 +191,7 @@
                         <input
                             type="text"
                             placeholder="Search for movies..."
-                            class="w-full p-4 rounded-md shadow-md focus:ring focus:ring-gray-900 dark:text-gray-800 dark:bg-gray-200"
+                            class="w-2/3 lg:w-full p-4 rounded-md shadow-md focus:ring focus:ring-gray-900 dark:text-gray-800 dark:bg-gray-200"
                         />
                     </div>
                     <div class="text-lg leading-relaxed dark:text-gray-300 mt-12">
