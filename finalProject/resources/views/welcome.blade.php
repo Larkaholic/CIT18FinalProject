@@ -193,13 +193,19 @@
                         <a href=""></a>
                     </div>
                     {{-- Search Bar --}}
-                    <div class="relative z-10">
+                    <form action="{{ route('search') }}" method="get" class="relative z-10">
                         <input
                             type="text"
+                            name="query"
                             placeholder="Search for movies..."
                             class="text-sm md:text-md w-2/3 lg:w-full md:w-2/3 sm:w-2/3 md:p-4 rounded-md shadow-md focus:ring focus:ring-gray-900 dark:text-gray-800 dark:bg-gray-200"
                         />
-                    </div>
+                        <button type="submit" class="absolute right-4 top-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </button>
+                    </form>
                     {{-- Description --}}
                     <div class="text-lg leading-relaxed dark:text-white dark:bg-red-700 dark:bg-opacity-90 rounded-md p-8 mt-12">
                         <h1 class="text-xl md:text-3xl font-semibold mb-8 dark:text-white">Welcome to MovieVault!</h1>
