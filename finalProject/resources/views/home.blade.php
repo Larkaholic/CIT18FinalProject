@@ -28,8 +28,10 @@
             <div class="flex overflow-x-auto gap-4">
                 @foreach ($popularMovies as $movie)
                     <div class="flex-shrink-0 w-48">
-                        <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
-                        <h3 class="text-sm font-semibold dark:text-white">{{ $movie->title }}</h3>
+                        <a href="{{ url('/movies/' . $movie->title) }}">
+                            <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
+                            <h3 class="text-sm font-semibold dark:text-white">{{ $movie->title }}</h3>
+                        </a>
                     </div>
                 @endforeach
             </div>
@@ -41,8 +43,10 @@
             <div class="flex overflow-x-auto gap-4">
                 @foreach ($newMovies as $movie)
                     <div class="flex-shrink-0 w-48">
-                        <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
-                        <h3 class="text-sm font-semibold dark:text-white">{{ $movie->title }}</h3>
+                        <a href="{{ url('/movies/' . $movie->title) }}">
+                            <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
+                            <h3 class="text-sm font-semibold dark:text-white">{{ $movie->title }}</h3>
+                        </a>
                     </div>
                 @endforeach
             </div>
