@@ -1,11 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-white leading-tight">
-            {{ __('Home') }}
-        </h2>
-    </x-slot>
-
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 -mt-10">
         {{-- Search Bar --}}
         <form action="{{ route('search') }}" method="get" class="relative z-10">
             <input
@@ -25,12 +19,12 @@
         {{-- Popular Movies Section --}}
         <section class="mb-8">
             <h2 class="text-xl font-semibold mb-4 dark:text-white">Popular Movies</h2>
-            <div class="flex overflow-x-auto gap-4">
+            <div class="flex overflow-x-auto gap-4 scrollbar-hide">
                 @foreach ($popularMovies as $movie)
                     <div class="flex-shrink-0 w-48">
                         <a href="{{ url('/movies/' . $movie->title) }}">
                             <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
-                            <h3 class="text-sm font-semibold dark:text-white">{{ $movie->title }}</h3>
+                            <h3 class="text-sm font-semibold dark:text-white">{{ $movie->title }} ({{ $movie->release_date ? $movie->release_date->format('Y') : 'N/A' }})</h3>
                         </a>
                     </div>
                 @endforeach
@@ -38,14 +32,14 @@
         </section>
 
         {{-- Newly Added Movies Section --}}
-        <section class="mb-8">
+        <section>
             <h2 class="text-xl font-semibold mb-4 dark:text-white">Newly Added Movies</h2>
-            <div class="flex overflow-x-auto gap-4">
+            <div class="flex overflow-x-auto gap-4 scrollbar-hide">
                 @foreach ($newMovies as $movie)
                     <div class="flex-shrink-0 w-48">
                         <a href="{{ url('/movies/' . $movie->title) }}">
                             <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
-                            <h3 class="text-sm font-semibold dark:text-white">{{ $movie->title }}</h3>
+                            <h3 class="text-sm font-semibold dark:text-white">{{ $movie->title }} ({{ $movie->release_date ? $movie->release_date->format('Y') : 'N/A' }})</h3>
                         </a>
                     </div>
                 @endforeach
