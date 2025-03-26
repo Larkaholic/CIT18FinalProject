@@ -24,4 +24,19 @@ class Movie extends Model
         'release_date' => 'date',
         'average_rating' => 'float',
     ];
+
+    public function getFormattedReleaseDateAttribute()
+    {
+        return $this->release_date->format('F j, Y');
+    }
+
+    public function scopeGenre($query, $genre)
+    {
+        return $query->where('genre', $genre);
+    }
+
+    public function setPosterPathAttribute($value)
+    {
+        $this->attributes['poster_path'] = 'images/' . $value;
+    }
 }
