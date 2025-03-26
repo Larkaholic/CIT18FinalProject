@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function(){
@@ -13,7 +14,7 @@ Route::middleware('guest')->group(function(){
         return view('welcome');
     });
     
-    
+    Route::get('/search', [MovieController::class, 'search'])->name('search');
 });
 
 Route::get('/dashboard', function () {
