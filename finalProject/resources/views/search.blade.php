@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="flex-grow p-6 lg:p-8">
+    <div class="flex-grow p-6 lg:p-8 -mt-10">
         {{-- Search Bar --}}
         <form action="{{ route('search') }}" method="get" class="relative z-10">
             <input
