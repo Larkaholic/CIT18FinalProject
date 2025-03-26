@@ -16,13 +16,16 @@ class HomeController extends Controller
         $newMovies = Movie::orderBy('created_at', 'desc')->take(10)->get();
 
         // Movies by Genre
-        $genres = Movie::distinct()->pluck('genre')->toArray();
+        $allGenres = Movie::pluck('genre')->flatMap(function ($genres) {
+            return explode(', ', $genres);
+        })->unique()->toArray();
+
         $genreMovies = [];
 
-        foreach ($genres as $genre) {
-            $genreMovies[$genre] = Movie::where('genre', $genre)->take(10)->get();
+        foreach ($allGenres as $genre) {
+            $genreMovies[$genre] = Movie::where('genre', 'like', '%' . $genre . '%')->take(10)->get();
         }
 
-        return view('home', compact('popularMovies', 'newMovies', 'genres', 'genreMovies'));
+        return view('home', compact('popularMovies', 'newMovies', 'genreMovies'));
     }
 }

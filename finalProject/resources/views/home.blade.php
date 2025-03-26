@@ -49,11 +49,11 @@
         </section>
 
         {{-- Movies by Genre Sections --}}
-        @foreach ($genres as $genre)
+        {{-- @foreach ($genreMovies as $genre => $movies)
             <section class="mb-8">
                 <h2 class="text-xl font-semibold mb-4 dark:text-white">{{ $genre }} Movies</h2>
                 <div class="flex overflow-x-auto gap-4">
-                    @foreach ($genreMovies[$genre] as $movie)
+                    @foreach ($movies as $movie)
                         <div class="flex-shrink-0 w-48">
                             <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
                             <h3 class="text-sm font-semibold dark:text-white">{{ $movie->title }}</h3>
@@ -61,6 +61,6 @@
                     @endforeach
                 </div>
             </section>
-        @endforeach
+        @endforeach --}}
         </div>
 </x-app-layout>
