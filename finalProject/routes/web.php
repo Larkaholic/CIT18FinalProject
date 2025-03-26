@@ -9,12 +9,6 @@ Route::middleware('guest')->group(function(){
     Route::get('/', function () {
         return view('welcome');
     });
-
-    Route::get('/home', function () {
-        return view('welcome');
-    });
-    
-    Route::get('/search', [MovieController::class, 'search'])->name('search');
 });
 
 Route::get('/dashboard', function () {
@@ -23,8 +17,8 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
-        return view('welcome');
-    });
+        return view('home');
+    })->name(name: 'home');
     
     Route::get('/search', [MovieController::class, 'search'])->name('search');
     
