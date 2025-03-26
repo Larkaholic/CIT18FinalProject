@@ -15,6 +15,6 @@ class MovieController extends Controller
             ->orWhere('description', 'like', "%$query%")
             ->get();
 
-        return view('search_results', compact('movies', 'query'));
+        return view('search', compact('movies', 'query'));
     }
 }
