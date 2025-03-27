@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function(){
@@ -22,6 +23,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/search', [MovieController::class, 'search'])->name('search');
     Route::get('/genres/{genre?}', [MovieController::class, 'showGenre'])->name('genres');
     Route::get('/movies/{id}', [MovieController::class, 'showDetails'])->name('movie_details');
+
+    // Lists Navigation
+    Route::get('/my-lists', [UserController::class, 'myLists'])->name('myLists')->name('my_lists');
 
     // User Interactions
     Route::post('/movies/{movie}/favorite', [MovieController::class, 'favorite'])->name('favorite');
