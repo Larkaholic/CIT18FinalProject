@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\Favorite;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -46,6 +48,21 @@ class MovieController extends Controller
             return view('genres', compact('genres', 'movies', 'genre'));
         } else {
             return view('genres', compact('genres'));
+        }
+    }
+
+    public function favorite(Request $request, Movie $movie)
+    {
+        $user = Auth::user();
+
+        $favorite = Favorite::where('user_id', $user->id)->where('movie_id', $movie->id)->first();
+
+        if ($favorite) {
+            $favorite->delete();
+            return response()->json(['message' => 'Removed from favorites']);
+        } else {
+            Favorite::create(['user_id' => $user->id, 'movie_id' => $movie->id]);
+            return response()->json(['message' => 'Added to favorites']);
         }
     }
 }
