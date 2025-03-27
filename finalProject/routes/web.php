@@ -17,16 +17,17 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    // Movie Navigation
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    
     Route::get('/search', [MovieController::class, 'search'])->name('search');
-
     Route::get('/genres/{genre?}', [MovieController::class, 'showGenre'])->name('genres');
-
     Route::get('/movies/{id}', [MovieController::class, 'showDetails'])->name('movie_details');
 
+    // User Interactions
     Route::post('/movies/{movie}/favorite', [MovieController::class, 'favorite'])->name('favorite');
+    Route::post('/movies/{movie}/watchlist', [MovieController::class, 'watchlist'])->name('watchlist');
     
+    // User Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
