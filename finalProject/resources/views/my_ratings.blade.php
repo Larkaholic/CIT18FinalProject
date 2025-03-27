@@ -17,9 +17,30 @@
                     @foreach ($ratingReviews as $rating)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap dark:text-white">
-                                <a href="{{ route('movie_details', $rating->movie->id) }}" class="text-red-500 hover:underline">{{ $rating->movie->title }}</a>
+                                <a href="{{ route('movie_details', $rating->movie->id) }}" class="text-white hover:underline">{{ $rating->movie->title }}</a>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $rating->rating }}</td>
+
+                            @if ($rating->rating === null)
+                                <p class="dark:text-gray-300">
+                                    {{ $rating->rating ?? 'N/A' }}
+                                </p>
+                            @else
+                                @php
+                                    $userRating = $rating->rating;
+                                    if (is_int($userRating) || floor($userRating) == $userRating) {
+                                        $userRating = number_format($userRating, 1);
+                                    }
+                                @endphp
+
+                                @if ($rating->rating >= 7.5)
+                                    <td class="px-6 py-4 whitespace-nowrap dark:text-green-500">{{ $userRating }}</td>
+                                @elseif ($rating->rating >= 6.0)
+                                    <td class="px-6 py-4 whitespace-nowrap dark:text-yellow-500">{{ $userRating }}</td>
+                                @else
+                                    <td class="px-6 py-4 whitespace-nowrap dark:text-red-500">{{ $userRating }}</td>
+                                @endif
+                            @endif
+
                             <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $rating->review }}</td>
                             <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $rating->created_at->format('M d, Y') }}</td>
                         </tr>
