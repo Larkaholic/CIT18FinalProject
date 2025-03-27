@@ -26,7 +26,15 @@ class MovieController extends Controller
     public function showDetails($id)
     {
         $movie = Movie::findOrFail($id);
-        return view('movie_details', compact('movie'));
+
+        $isFavorite = false;
+        if (Auth::check()) {
+            $isFavorite = Favorite::where('user_id', Auth::id())
+                ->where('movie_id', $movie->id)
+                ->exists();
+        }
+
+        return view('movie_details', compact('movie', 'isFavorite'));
     }
 
     public function showGenre(Request $request, $genre = null)
@@ -59,10 +67,10 @@ class MovieController extends Controller
 
         if ($favorite) {
             $favorite->delete();
-            return response()->json(['message' => 'Removed from favorites']);
         } else {
             Favorite::create(['user_id' => $user->id, 'movie_id' => $movie->id]);
-            return response()->json(['message' => 'Added to favorites']);
         }
+
+        return redirect()->route('movie_details', $movie->id);
     }
 }
