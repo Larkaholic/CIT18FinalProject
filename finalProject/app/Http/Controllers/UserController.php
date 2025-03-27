@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\User;
+use App\Models\Rating;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -41,5 +42,16 @@ class UserController extends Controller
             ->get();
 
         return view('my_ratings', compact('ratingReviews'));
+    }
+
+    public function deleteRating(Rating $rating)
+    {
+        if ($rating->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $rating->delete();
+
+        return redirect()->route('my_ratings')->with('success', 'Rating deleted successfully.');
     }
 }
