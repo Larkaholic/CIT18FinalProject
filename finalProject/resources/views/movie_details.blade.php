@@ -42,20 +42,28 @@
                         <p class="dark:text-gray-300">
                             {{ $movie->average_rating ?? 'N/A' }}
                         </p>
-                    @elseif ($movie->average_rating >= 7.5)
-                        <p class="dark:text-green-500">
-                            {{ $movie->average_rating ?? 'N/A' }}
-                        </p>
-                    @elseif ($movie->average_rating >= 6.0)
-                        <p class="dark:text-yellow-500">
-                            {{ $movie->average_rating ?? 'N/A' }}
-                        </p>
                     @else
-                        <p class="dark:text-red-500">
-                            {{ $movie->average_rating ?? 'N/A' }}
-                        </p>
+                        @php
+                            $rating = $movie->average_rating;
+                            if (is_int($rating) || floor($rating) == $rating) {
+                                $rating = number_format($rating, 1);
+                            }
+                        @endphp
+
+                        @if ($movie->average_rating >= 7.5)
+                            <p class="dark:text-green-500">
+                                {{ $rating }}
+                            </p>
+                        @elseif ($movie->average_rating >= 6.0)
+                            <p class="dark:text-yellow-500">
+                                {{ $rating }}
+                            </p>
+                        @else
+                            <p class="dark:text-red-500">
+                                {{ $rating }}
+                            </p>
+                        @endif
                     @endif
-                    
                 </div>
             </div>
         </div>
