@@ -193,7 +193,7 @@
                         <a href=""></a>
                     </div>
                     {{-- Search Bar --}}
-                    <form action="{{ route('search') }}" method="get" class="relative z-10">
+                    {{-- <form action="{{ route('search') }}" method="get" class="relative z-10">
                         <input
                             type="text"
                             name="query"
@@ -205,7 +205,7 @@
                               <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                             </svg>
                         </button>
-                    </form>
+                    </form> --}}
                     {{-- Description --}}
                     <div class="text-lg leading-relaxed dark:text-white dark:bg-red-700 dark:bg-opacity-90 rounded-md p-8 mt-12">
                         <h1 class="text-xl md:text-3xl font-semibold mb-8 dark:text-white">Welcome to MovieVault!</h1>
@@ -215,13 +215,13 @@
                         <p class="text-sm sm:text-lg">
                             Explore new releases, create watchlists, and connect with fellow movie enthusiasts.
                         </p>
-                        {{-- Go to Home Button --}}
+                        {{-- Get Started Button --}}
                         <div class="mt-12">
-                            <a href="{{ url('/home') }}" class="inline-flex items-center px-12 py-2 bg-white text-red-700 hover:underline rounded-3xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            <a href="{{ url('/register') }}" class="inline-flex items-center px-12 py-2 bg-white text-red-700 hover:underline rounded-3xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
                                 </svg>
-                                Go to Home
+                                Get Started
                             </a>
                         </div>
                     </div>
