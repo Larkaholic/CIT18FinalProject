@@ -37,7 +37,7 @@
             <div class="flex overflow-x-auto gap-4 scrollbar-hide">
                 @foreach ($newMovies as $movie)
                     <div class="flex-shrink-0 w-48">
-                        <a href="{{ url('/movies/' . $movie->title) }}">
+                        <a href="{{ url('/movies/' . $movie->id) }}">
                             <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
                             <h3 class="text-sm font-semibold dark:text-white">{{ $movie->title }} ({{ $movie->release_date ? $movie->release_date->format('Y') : 'N/A' }})</h3>
                         </a>
