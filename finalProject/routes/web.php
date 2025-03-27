@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/search', [MovieController::class, 'search'])->name('search');
 
-    Route::get('/genres', [HomeController::class, 'index'])->name('genres');
+    Route::get('/genres/{genre?}', [MovieController::class, 'showGenre'])->name('genres');
     
     Route::get('/search', [MovieController::class, 'search'])->name('search');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
