@@ -11,6 +11,7 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">Rating</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">Review</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">Date</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -41,8 +42,17 @@
                                 @endif
                             @endif
 
-                            <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $rating->review }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap dark:text-white text-wrap">{{ $rating->review }}</td>
                             <td class="px-6 py-4 whitespace-nowrap dark:text-white">{{ $rating->created_at->format('M d, Y') }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap dark:text-white">
+                                <a href="{{ url('/movies/' . $rating->movie_id) }}" class="text-yellow-400 hover:underline">Edit</a>
+
+                                <form action="{{ route('my_ratings.delete', $rating->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this rating?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
