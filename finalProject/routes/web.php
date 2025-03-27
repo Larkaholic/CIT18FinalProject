@@ -20,6 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     
     Route::get('/search', [MovieController::class, 'search'])->name('search');
+
+    Route::get('/genres', [HomeController::class, 'index'])->name('genres');
     
     Route::get('/search', [MovieController::class, 'search'])->name('search');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -15,8 +15,8 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('dashboard')" class="text-white hover:text-white hover:bg-gray-700 px-4">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white hover:text-white hover:bg-gray-700 px-4">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('genres')" :active="request()->routeIs('genres')" class="text-white hover:text-white hover:bg-gray-700 px-4">
+                        {{ __('Genres') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -37,6 +37,9 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link :href="route('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-dropdown-link>
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
