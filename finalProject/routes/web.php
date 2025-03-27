@@ -12,7 +12,7 @@ Route::middleware('guest')->group(function(){
     });
 });
 
-Route::get('/my_reviews', function () {
+Route::get('/my-reviews', function () {
     return view('my_reviews');
 })->middleware(['auth', 'verified'])->name('my_reviews');
 
