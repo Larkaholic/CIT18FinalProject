@@ -24,10 +24,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/genres/{genre?}', [MovieController::class, 'showGenre'])->name('genres');
     Route::get('/movies/{id}', [MovieController::class, 'showDetails'])->name('movie_details');
 
-    // Lists Navigation
+    // Lists Management
     Route::get('/my-watchlist', [UserController::class, 'myWatchlist'])->name('my_lists');
     Route::get('/my-favorites', [UserController::class, 'myFavorites'])->name('my_favorites');
     Route::get('/my-ratings', [UserController::class, 'myRatings'])->name('my_ratings');
+    Route::delete('/ratings/{rating}', [UserController::class, 'deleteRating'])->name('my_ratings.delete');
 
     // User Interactions
     Route::post('/movies/{movie}/favorite', [MovieController::class, 'favorite'])->name('favorite');
