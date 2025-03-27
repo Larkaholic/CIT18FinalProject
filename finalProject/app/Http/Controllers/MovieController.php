@@ -22,10 +22,18 @@ class MovieController extends Controller
     {
         $genres = Movie::pluck('genre')->flatMap(function ($genres) {
             return explode(', ', $genres);
-        })->unique()->toArray();
+        })->unique()->sort()->toArray();
 
-        if ($genre) {
-            $movies = Movie::where('genre', 'like', '%' . $genre . '%')->get();
+        // Add "All" genre for default view
+        array_unshift($genres, 'All');
+
+        if ($genre && $genre !== 'All') {
+            $movies = Movie::where('genre', 'like', '%' . $genre . '%')
+                ->orderBy('title')
+                ->get();
+            return view('genres', compact('genres', 'movies', 'genre'));
+        } elseif ($genre === 'All' || $genre === null) {
+            $movies = Movie::orderBy('title')->get();
             return view('genres', compact('genres', 'movies', 'genre'));
         } else {
             return view('genres', compact('genres'));
