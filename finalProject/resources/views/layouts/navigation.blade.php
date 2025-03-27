@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('genres')" :active="request()->routeIs('genres')" class="text-white hover:text-white hover:bg-gray-700 px-4">
                         {{ __('By Genre') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('my_favorites')" :active="request()->routeIs('my_favorites')" class="text-white hover:text-white hover:bg-gray-700 px-4">
+                        {{ __('Favorites') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('my_lists')" :active="request()->routeIs('my_lists')" class="text-white hover:text-white hover:bg-gray-700 px-4">
                         {{ __('My Watchlist') }}
                     </x-nav-link>
@@ -81,6 +84,9 @@
             </x-nav-link>
             <x-nav-link :href="route('genres')" :active="request()->routeIs('genres')" class="text-white hover:text-white hover:bg-gray-700 px-4">
                 {{ __('By Genre') }}
+            </x-nav-link>
+            <x-nav-link :href="route('my_favorites')" :active="request()->routeIs('my_favorites')" class="text-white hover:text-white hover:bg-gray-700 px-4">
+                {{ __('Favorites') }}
             </x-nav-link>
             <x-nav-link :href="route('my_lists')" :active="request()->routeIs('my_lists')" class="text-white hover:text-white hover:bg-gray-700 px-4">
                 {{ __('My Watchlist') }}
