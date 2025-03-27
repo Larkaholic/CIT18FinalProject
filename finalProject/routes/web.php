@@ -12,9 +12,9 @@ Route::middleware('guest')->group(function(){
     });
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/my_reviews', function () {
+    return view('my_reviews');
+})->middleware(['auth', 'verified'])->name('my_reviews');
 
 Route::middleware('auth')->group(function () {
     // Movie Navigation
