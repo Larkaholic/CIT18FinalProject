@@ -9,7 +9,18 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function myLists()
+    public function myWatchlist()
+    {
+        $user = Auth::user();
+
+        $watchlistedMovies = $user->watchlists()
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        return view('my_lists', compact('watchlistedMovies'));
+    }
+
+    public function myFavorites()
     {
         $user = Auth::user();
 
@@ -17,10 +28,6 @@ class UserController extends Controller
             ->orderBy('created_at', 'asc')
             ->get();
 
-        $watchlistedMovies = $user->watchlists()
-            ->orderBy('created_at', 'asc')
-            ->get();
-
-        return view('my_lists', compact('favoriteMovies', 'watchlistedMovies'));
+        return view('my_favorites', compact('favoriteMovies'));
     }
 }
