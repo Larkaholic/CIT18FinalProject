@@ -26,7 +26,7 @@
                     <div class="w-3/4 ml-4">
                         <h2 class="text-lg font-semibold mb-2 dark:text-white">{{ $movie->title }}</h2>
                         <p class="text-sm dark:text-gray-300">{{ $movie->description }}</p>
-                        <a href="{{ url('/movies/' . $movie->title) }}" class="mt-2 inline-block text-red-600 hover:underline">View Details</a>
+                        <a href="{{ url('/movies/' . $movie->id) }}" class="mt-2 inline-block text-red-600 hover:underline">View Details</a>
                     </div>
                 </div>
                 @endforeach
