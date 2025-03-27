@@ -20,7 +20,7 @@
                     @foreach ($movies as $movie)
                         <div class="border rounded-md p-4 dark:border-gray-700 dark:bg-gray-800">
                             <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-48 object-cover mb-2 rounded-md">
-                            <h2 class="text-lg font-semibold mb-2 dark:text-white">{{ $movie->title }}</h2>
+                            <h2 class="text-lg font-semibold mb-2 dark:text-white">{{ $movie->title }}  ({{ $movie->release_date ? $movie->release_date->format('Y') : 'N/A' }})</h2>
                             <p class="text-sm dark:text-gray-300">{{ $movie->description }}</p>
                             <a href="{{ url('/movies/' . $movie->id) }}" class="mt-2 inline-block text-blue-500 hover:underline">View Details</a>
                         </div>
