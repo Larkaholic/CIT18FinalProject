@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {{-- Movie Poster (Smaller) --}}
             <div class="md:col-span-1">
-                <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-80 rounded-md shadow-md">
+                <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="max-w-2/3 rounded-md shadow-md">
             </div>
 
             {{-- Movie Details --}}
@@ -37,7 +37,25 @@
 
                 <div class="mb-4">
                     <h2 class="text-lg font-semibold dark:text-white">Average Rating</h2>
-                    <p class="dark:text-gray-300">{{ $movie->average_rating ?? 'N/A' }}</p>
+
+                    @if ($movie->average_rating === null)
+                        <p class="dark:text-gray-300">
+                            {{ $movie->average_rating ?? 'N/A' }}
+                        </p>
+                    @elseif ($movie->average_rating >= 7.5)
+                        <p class="dark:text-green-500">
+                            {{ $movie->average_rating ?? 'N/A' }}
+                        </p>
+                    @elseif ($movie->average_rating >= 6.0)
+                        <p class="dark:text-yellow-500">
+                            {{ $movie->average_rating ?? 'N/A' }}
+                        </p>
+                    @else
+                        <p class="dark:text-red-500">
+                            {{ $movie->average_rating ?? 'N/A' }}
+                        </p>
+                    @endif
+                    
                 </div>
             </div>
         </div>
