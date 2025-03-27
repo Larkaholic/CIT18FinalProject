@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/genres/{genre?}', [MovieController::class, 'showGenre'])->name('genres');
 
     Route::get('/movies/{id}', [MovieController::class, 'showDetails'])->name('movie_details');
+
+    Route::post('/movies/{movie}/favorite', [MovieController::class, 'favorite'])->name('favorite');
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
