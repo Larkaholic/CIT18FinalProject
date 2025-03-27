@@ -13,8 +13,8 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        $favoriteMovies = $user->User::favorites()->get();
-        $watchlistedMovies = $user->User::watchlists()->get();
+        $favoriteMovies = $user->favorites()->get();
+        $watchlistedMovies = $user->watchlists()->get();
 
         return view('my_lists', compact('favoriteMovies', 'watchlistedMovies'));
     }
