@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('my_lists')" :active="request()->routeIs('my_lists')" class="text-white hover:text-white hover:bg-gray-700 px-4">
                         {{ __('My Watchlist') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('my_ratings')" :active="request()->routeIs('my_ratings')" class="text-white hover:text-white hover:bg-gray-700 px-4">
+                        {{ __('My Ratings') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -90,6 +93,9 @@
             </x-nav-link>
             <x-nav-link :href="route('my_lists')" :active="request()->routeIs('my_lists')" class="text-white hover:text-white hover:bg-gray-700 px-4">
                 {{ __('My Watchlist') }}
+            </x-nav-link>
+            <x-nav-link :href="route('my_ratings')" :active="request()->routeIs('my_ratings')" class="text-white hover:text-white hover:bg-gray-700 px-4">
+                {{ __('My Ratings') }}
             </x-nav-link>
         </div>
 
