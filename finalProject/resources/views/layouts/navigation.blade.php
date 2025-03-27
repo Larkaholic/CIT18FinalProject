@@ -43,9 +43,9 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('my_reviews')">
+                        {{-- <x-dropdown-link :href="route('my_reviews')">
                             {{ __('My Reviews') }}
-                        </x-dropdown-link>
+                        </x-dropdown-link> --}}
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
@@ -102,9 +102,9 @@
             </div> --}}
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('my_reviews')" class="text-white hover:text-white hover:bg-gray-700">
+                {{-- <x-responsive-nav-link :href="route('my_reviews')" class="text-white hover:text-white hover:bg-gray-700">
                     {{ __('My Reviews') }}
-                </x-responsive-nav-link>
+                </x-responsive-nav-link> --}}
                 <x-responsive-nav-link :href="route('profile.edit')" class="text-white hover:text-white hover:bg-gray-700">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
