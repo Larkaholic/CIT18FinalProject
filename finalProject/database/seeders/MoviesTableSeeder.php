@@ -17,7 +17,7 @@ class MoviesTableSeeder extends Seeder
             'title' => 'Avatar: The Way of Water',
             'description' => 'Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na\'vi race to protect their home.',
             'release_date' => '2022-12-16',
-            'genre' => 'Sci-Fi,Action, Adventure, Fantasy',
+            'genre' => 'Sci-Fi, Action, Adventure, Fantasy',
             'poster_path' => 'poster_avatar_the_way_of_water.jpg',
             'director' => 'James Cameron',
             'cast' => 'Sam Worthington, Zoe Saldaña, Sigourney Weaver, Stephen Lang, Cliff Curtis',
