@@ -3,7 +3,7 @@
         <h1 class="text-2xl font-semibold mb-6 dark:text-white">My Watchlist</h1>
 
         {{-- Watchlisted Movies --}}
-        <h2 class="text-xl font-semibold mt-8 mb-4 dark:text-white">Watchlisted Movies</h2>
+        {{-- <h2 class="text-xl font-semibold mt-8 mb-4 dark:text-white">Watchlisted Movies</h2> --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @if ($favoriteMovies->isNotEmpty())
                 @foreach ($watchlistedMovies as $movie)

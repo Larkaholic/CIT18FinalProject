@@ -3,7 +3,7 @@
         <h1 class="text-2xl font-semibold mb-6 dark:text-white">My Favorites</h1>
 
         {{-- Favorite Movies --}}
-        <h2 class="text-xl font-semibold mb-4 dark:text-white">Favorite Movies</h2>
+        {{-- <h2 class="text-xl font-semibold mb-4 dark:text-white">Favorite Movies</h2> --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @if ($favoriteMovies->isNotEmpty())
                 @foreach ($favoriteMovies as $movie)
