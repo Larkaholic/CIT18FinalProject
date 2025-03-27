@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 -mt-10">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 -mt-4">
         <h1 class="text-2xl font-semibold mb-6 dark:text-white">My Favorites</h1>
 
         {{-- Favorite Movies --}}
@@ -20,5 +20,29 @@
                 </div>
             @endif
         </div>
+
+        {{-- Back to Top Button --}}
+        <button id="backToTopBtn" class="fixed bottom-4 right-4 bg-gray-200 dark:bg-gray-700 rounded-full p-3 shadow-md cursor-pointer hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
+            </svg>
+        </button>
     </div>
+
+    <script>
+        // JavaScript for Back to Top Button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("backToTopBtn").classList.remove("hidden");
+            } else {
+                document.getElementById("backToTopBtn").classList.add("hidden");
+            }
+        }
+
+        document.getElementById("backToTopBtn").addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </x-app-layout>
