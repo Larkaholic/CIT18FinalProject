@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     // User Interactions
     Route::post('/movies/{movie}/favorite', [MovieController::class, 'favorite'])->name('favorite');
     Route::post('/movies/{movie}/watchlist', [MovieController::class, 'watchlist'])->name('watchlist');
+    Route::post('/movies/{movie}/rate', [MovieController::class, 'rate'])->name('rate');
     
     // User Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
