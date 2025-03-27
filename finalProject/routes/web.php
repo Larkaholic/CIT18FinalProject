@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
     // Lists Navigation
     Route::get('/my-watchlist', [UserController::class, 'myWatchlist'])->name('my_lists');
     Route::get('/my-favorites', [UserController::class, 'myFavorites'])->name('my_favorites');
+    Route::get('/my-ratings', [UserController::class, 'myRatings'])->name('my_ratings');
 
     // User Interactions
     Route::post('/movies/{movie}/favorite', [MovieController::class, 'favorite'])->name('favorite');
