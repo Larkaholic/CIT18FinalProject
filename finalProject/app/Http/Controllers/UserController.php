@@ -30,4 +30,16 @@ class UserController extends Controller
 
         return view('my_favorites', compact('favoriteMovies'));
     }
+
+    public function myRatings()
+    {
+        $user = Auth::user();
+
+        $ratingReviews = $user->ratings()
+            ->with('movie')
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        return view('my_ratings', compact('ratingReviews'));
+    }
 }
