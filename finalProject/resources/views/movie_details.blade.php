@@ -113,7 +113,7 @@
                         <input type="number" name="rating" id="rating" min="1" max="10" class="p-2 border rounded-md dark:bg-gray-800 dark:border-gray-700 dark:text-white" value="{{ $userRating->rating }}">
                         <label for="review" class="dark:text-white">My Review (Optional)</label>
                         <textarea name="review" id="review" class="p-2 border rounded-md dark:bg-gray-800 dark:border-gray-700 dark:text-white">{{ $userRating->review }}</textarea>
-                        <button type="submit" class="p-2 bg-yellow-500 hover:bg-yellow-400 text-black rounded-md">Edit Movie Rating</button>
+                        <button type="submit" class="p-2 border border-yellow-500 hover:bg-yellow-600 transition text-yellow-500 hover:text-white rounded-md">Edit Movie Rating</button>
                     @else
                         <label for="rating" class="dark:text-white">My Rating (1 - 10)</label>
                         <input type="number" name="rating" id="rating" min="1" max="10" class="p-2 border rounded-md dark:bg-gray-800 dark:border-gray-700 dark:text-white">
