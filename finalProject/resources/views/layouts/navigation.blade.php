@@ -16,7 +16,7 @@
                         {{ __('Home') }}
                     </x-nav-link>
                     <x-nav-link :href="route('genres')" :active="request()->routeIs('genres')" class="text-white hover:text-white hover:bg-gray-700 px-4">
-                        {{ __('Genres') }}
+                        {{ __('By Genre') }}
                     </x-nav-link>
                 </div>
             </div>
