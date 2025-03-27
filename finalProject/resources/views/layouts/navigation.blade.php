@@ -19,7 +19,7 @@
                         {{ __('By Genre') }}
                     </x-nav-link>
                     <x-nav-link :href="route('my_lists')" :active="request()->routeIs('my_lists')" class="text-white hover:text-white hover:bg-gray-700 px-4">
-                        {{ __('My Lists') }}
+                        {{ __('My Watchlist') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 {{ __('By Genre') }}
             </x-nav-link>
             <x-nav-link :href="route('my_lists')" :active="request()->routeIs('my_lists')" class="text-white hover:text-white hover:bg-gray-700 px-4">
-                {{ __('My Lists') }}
+                {{ __('My Watchlist') }}
             </x-nav-link>
         </div>
 
