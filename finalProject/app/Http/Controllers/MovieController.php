@@ -21,6 +21,12 @@ class MovieController extends Controller
         return view('search', compact('movies', 'query'));
     }
 
+    public function showDetails($id)
+    {
+        $movie = Movie::findOrFail($id);
+        return view('movie_details', compact('movie'));
+    }
+
     public function showGenre(Request $request, $genre = null)
     {
         $genres = Movie::pluck('genre')->flatMap(function ($genres) {
