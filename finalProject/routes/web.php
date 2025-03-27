@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/movies/{id}', [MovieController::class, 'showDetails'])->name('movie_details');
 
     // Lists Navigation
-    Route::get('/my-lists', [UserController::class, 'myLists'])->name('my_lists');
+    Route::get('/my-watchlist', [UserController::class, 'myLists'])->name('my_lists');
 
     // User Interactions
     Route::post('/movies/{movie}/favorite', [MovieController::class, 'favorite'])->name('favorite');
