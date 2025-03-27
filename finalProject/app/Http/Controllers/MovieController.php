@@ -13,6 +13,9 @@ class MovieController extends Controller
 
         $movies = Movie::where('title', 'like', "%$query%")
             ->orWhere('description', 'like', "%$query%")
+            ->orWhere('release_date', 'like', "%$query%")
+            ->orWhere('director', 'like', "%$query%")
+            ->orWhere('cast', 'like', "%$query%")
             ->get();
 
         return view('search', compact('movies', 'query'));
