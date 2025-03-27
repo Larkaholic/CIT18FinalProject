@@ -1,3 +1,45 @@
-<div>
-    <!-- I begin to speak only when I am certain what I will say is not better left unsaid. - Cato the Younger -->
-</div>
+<x-app-layout>
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {{-- Movie Poster (Smaller) --}}
+            <div class="md:col-span-1">
+                <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-80 rounded-md shadow-md">
+            </div>
+
+            {{-- Movie Details --}}
+            <div class="md:col-span-1">
+                <h1 class="text-2xl font-semibold mb-4 dark:text-white">{{ $movie->title }}</h1>
+
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold dark:text-white">Description</h2>
+                    <p class="dark:text-gray-300">{{ $movie->description }}</p>
+                </div>
+
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold dark:text-white">Release Date</h2>
+                    <p class="dark:text-gray-300">{{ $movie->release_date ? $movie->release_date->format('F j, Y') : 'N/A' }}</p>
+                </div>
+
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold dark:text-white">Genre</h2>
+                    <p class="dark:text-gray-300">{{ $movie->genre }}</p>
+                </div>
+
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold dark:text-white">Director</h2>
+                    <p class="dark:text-gray-300">{{ $movie->director ?? 'N/A' }}</p>
+                </div>
+
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold dark:text-white">Cast</h2>
+                    <p class="dark:text-gray-300">{{ $movie->cast ?? 'N/A' }}</p>
+                </div>
+
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold dark:text-white">Average Rating</h2>
+                    <p class="dark:text-gray-300">{{ $movie->average_rating ?? 'N/A' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
