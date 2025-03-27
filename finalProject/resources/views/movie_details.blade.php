@@ -104,6 +104,24 @@
                         @endif
                     @endif
                 </div>
+
+                {{-- Rating Form --}}
+                <form id="ratingForm" class="flex flex-col gap-2" action="{{ route('rate', $movie->id) }}" method="POST">
+                    @csrf
+                    @if ($userRating)
+                        <label for="rating" class="dark:text-white">My Rating (1 - 10)</label>
+                        <input type="number" name="rating" id="rating" min="1" max="10" class="p-2 border rounded-md dark:bg-gray-800 dark:border-gray-700 dark:text-white" value="{{ $userRating->rating }}">
+                        <label for="review" class="dark:text-white">My Review (Optional)</label>
+                        <textarea name="review" id="review" class="p-2 border rounded-md dark:bg-gray-800 dark:border-gray-700 dark:text-white">{{ $userRating->review }}</textarea>
+                        <button type="submit" class="p-2 bg-yellow-500 hover:bg-yellow-400 text-black rounded-md">Edit Movie Rating</button>
+                    @else
+                        <label for="rating" class="dark:text-white">My Rating (1 - 10)</label>
+                        <input type="number" name="rating" id="rating" min="1" max="10" class="p-2 border rounded-md dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                        <label for="review" class="dark:text-white">My Review (Optional)</label>
+                        <textarea name="review" id="review" class="p-2 border rounded-md dark:bg-gray-800 dark:border-gray-700 dark:text-white"></textarea>
+                        <button type="submit" class="p-2 bg-yellow-500 hover:bg-yellow-400 text-black rounded-md">Rate Movie</button>
+                    @endif
+                </form>
             </div>
         </div>
     </div>
