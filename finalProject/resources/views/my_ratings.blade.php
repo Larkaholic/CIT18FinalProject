@@ -7,7 +7,7 @@
             <table class="min-w-full bg-white rounded-lg shadow-md dark:bg-gray-800">
                 <thead>
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">Movie Title</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">Movie</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">Rating</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">Review</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-gray-300">Date</th>
@@ -18,7 +18,7 @@
                     @foreach ($ratingReviews as $rating)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap dark:text-white">
-                                <a href="{{ route('movie_details', $rating->movie->id) }}" class="text-white hover:underline">{{ $rating->movie->title }}</a>
+                                <a href="{{ route('movie_details', $rating->movie->id) }}" class="text-white hover:underline">{{ $rating->movie->title }} ({{ $rating->movie->release_date->format('Y') }})</a>
                             </td>
 
                             @if ($rating->rating === null)
