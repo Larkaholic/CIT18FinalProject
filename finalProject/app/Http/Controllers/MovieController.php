@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Favorite;
 use App\Models\Watchlist;
+use App\Models\Rating;
 use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
@@ -42,7 +43,14 @@ class MovieController extends Controller
                 ->exists();
         }
 
-        return view('movie_details', compact('movie', 'isFavorite', 'isWatchlist'));
+        $userRating = null;
+            if (Auth::check()) {
+                $userRating = Rating::where('user_id', Auth::id())
+                    ->where('movie_id', $movie->id)
+                    ->first();
+            }
+
+        return view('movie_details', compact('movie', 'isFavorite', 'isWatchlist', 'userRating'));
     }
 
     public function showGenre(Request $request, $genre = null)
@@ -94,6 +102,23 @@ class MovieController extends Controller
             Watchlist::create(['user_id' => $user->id, 'movie_id' => $movie->id]);
         }
 
+        return redirect()->route('movie_details', $movie->id);
+    }
+
+    public function rate(Request $request, Movie $movie)
+    {
+        $request->validate([
+            'rating' => 'required|integer|min:1|max:10',
+            'review' => 'nullable|string',
+        ]);
+    
+        $user = Auth::user();
+    
+        Rating::updateOrCreate(
+            ['user_id' => $user->id, 'movie_id' => $movie->id],
+            ['rating' => $request->rating, 'review' => $request->review]
+        );
+    
         return redirect()->route('movie_details', $movie->id);
     }
 }
