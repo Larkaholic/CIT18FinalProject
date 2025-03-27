@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Favorite;
+use App\Models\Watchlist;
 use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
@@ -34,7 +35,14 @@ class MovieController extends Controller
                 ->exists();
         }
 
-        return view('movie_details', compact('movie', 'isFavorite'));
+        $isWatchlist = false;
+        if (Auth::check()) {
+            $isWatchlist = Watchlist::where('user_id', Auth::id())
+                ->where('movie_id', $movie->id)
+                ->exists();
+        }
+
+        return view('movie_details', compact('movie', 'isFavorite', 'isWatchlist'));
     }
 
     public function showGenre(Request $request, $genre = null)
@@ -69,6 +77,21 @@ class MovieController extends Controller
             $favorite->delete();
         } else {
             Favorite::create(['user_id' => $user->id, 'movie_id' => $movie->id]);
+        }
+
+        return redirect()->route('movie_details', $movie->id);
+    }
+
+    public function watchlist(Request $request, Movie $movie)
+    {
+        $user = Auth::user();
+
+        $watchlist = Watchlist::where('user_id', $user->id)->where('movie_id', $movie->id)->first();
+
+        if ($watchlist) {
+            $watchlist->delete();
+        } else {
+            Watchlist::create(['user_id' => $user->id, 'movie_id' => $movie->id]);
         }
 
         return redirect()->route('movie_details', $movie->id);
