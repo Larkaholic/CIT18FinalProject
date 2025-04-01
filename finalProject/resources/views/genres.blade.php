@@ -5,9 +5,9 @@
         {{-- Genre List --}}
         <div class="flex flex-wrap gap-2 mb-4">
             @foreach ($genres as $genreItem)
-                <a href="{{ route('genres', ['genre' => $genreItem]) }}" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600">
-                    {{ $genreItem }}
-                </a>
+            <a href="{{ route('genres', ['genre' => $genreItem]) }}" class="px-3 py-1 border border-red-500 text-white bg-gray-800">
+                {{ $genreItem }}
+            </a>
             @endforeach
         </div>
         <br>
