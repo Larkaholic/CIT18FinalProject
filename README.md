@@ -19,9 +19,3 @@
     ```bash
     php artisan db:seed
     ```
-
-# Main_Landing_Page_UI
-<img src="https://github.com/Larkaholic/CIT18FinalProject/blob/UI_ReadMe/finalProject/img/LandingPage%20UI.png?raw=true">
-
-# Home_Page_UI
-<img src="https://github.com/Larkaholic/CIT18FinalProject/blob/UI_ReadMe/finalProject/img/Home%20Page%20UI.png?raw=true">
