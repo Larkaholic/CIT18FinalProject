@@ -46,7 +46,7 @@ class RatingsSeeder extends Seeder
         $users = User::all()->pluck('id')->toArray();
 
         // Seed dummy ratings
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 300; $i++) {
             Rating::create([
                 'user_id' => $faker->randomElement($users),
                 'movie_id' => $faker->randomElement($movies),
