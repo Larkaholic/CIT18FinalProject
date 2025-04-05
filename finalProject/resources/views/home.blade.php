@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 -mt-10">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 -mt-4">
         {{-- Search Bar --}}
         <form action="{{ route('search') }}" method="get" class="relative z-10">
             <input

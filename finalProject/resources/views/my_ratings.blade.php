@@ -3,7 +3,7 @@
         <h1 class="text-2xl font-semibold mb-6text-white">My Ratings</h1>
 
         {{-- Ratings Table --}}
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto mt-6">
             <table class="min-w-full rounded-lg shadow-md bg-gray-800">
                 <thead>
                     <tr>
