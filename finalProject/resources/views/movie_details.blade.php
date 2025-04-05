@@ -134,14 +134,14 @@
                             <li class="bg-gray-800 p-4 rounded-md">
                                 <div class="flex items-center mb-2">
                                     <span class="font-semibold text-white">{{ $rating->user->name }}</span>
-                                    <span class="text-gray-500 ml-2">rated it: {{ $rating->rating }}/10</span>
+                                    <span class="text-gray-400 ml-2">rated it: {{ $rating->rating }}/10</span>
                                 </div>
                                 @if ($rating->review)
-                                    <p class="text-gray-400">{{ $rating->review }}</p>
+                                    <p class="text-gray-300">{{ $rating->review }}</p>
                                 @else
-                                    <p class="text-gray-600 italic">No review provided.</p>
+                                    <p class="text-gray-500 italic">No review provided.</p>
                                 @endif
-                                <small class="text-gray-700 mt-2 block">Reviewed on {{ $rating->created_at->format('F j, Y') }}</small>
+                                <small class="text-gray-400 mt-2 block">Reviewed on {{ $rating->created_at->format('F j, Y') }}</small>
                             </li>
                         @endforeach
                     </ul>
