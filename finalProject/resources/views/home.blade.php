@@ -15,24 +15,9 @@
             </button>
         </form>
         <br>
-
-        {{-- Popular Movies Section --}}
-        <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-4 text-white">Popular Movies</h2>
-            <div class="flex overflow-x-auto gap-4 scrollbar-hide">
-                @foreach ($popularMovies as $movie)
-                    <div class="flex-shrink-0 w-48">
-                        <a href="{{ url('/movies/' . $movie->id) }}">
-                            <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
-                            <h3 class="text-sm font-semibold text-white">{{ $movie->title }} ({{ $movie->release_date ? $movie->release_date->format('Y') : 'N/A' }})</h3>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-        </section>
-
+        
         {{-- Newly Added Movies Section --}}
-        <section>
+        <section class="mb-8">
             <h2 class="text-xl font-semibold mb-4 text-white">Newly Added Movies</h2>
             <div class="flex overflow-x-auto gap-4 scrollbar-hide">
                 @foreach ($newMovies as $movie)
@@ -46,19 +31,34 @@
             </div>
         </section>
 
-        {{-- Movies by Genre Sections --}}
-        {{-- @foreach ($genreMovies as $genre => $movies)
-            <section class="mb-8">
-                <h2 class="text-xl font-semibold mb-4 text-white">{{ $genre }} Movies</h2>
-                <div class="flex overflow-x-auto gap-4">
-                    @foreach ($movies as $movie)
-                        <div class="flex-shrink-0 w-48">
+        {{-- Most Favorited Section --}}
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-4 text-white">Most Loved Movies</h2>
+            <div class="flex overflow-x-auto gap-4 scrollbar-hide">
+                @foreach ($favoriteMovies as $movie)
+                    <div class="flex-shrink-0 w-48">
+                        <a href="{{ url('/movies/' . $movie->id) }}">
                             <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
-                            <h3 class="text-sm font-semibold text-white">{{ $movie->title }}</h3>
-                        </div>
-                    @endforeach
-                </div>
-            </section>
-        @endforeach --}}
+                            <h3 class="text-sm font-semibold text-white">{{ $movie->title }} ({{ $movie->release_date ? $movie->release_date->format('Y') : 'N/A' }})</h3>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+
+        {{-- Highly Rated Section --}}
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-4 text-white">Highly Rated Movies</h2>
+            <div class="flex overflow-x-auto gap-4 scrollbar-hide">
+                @foreach ($highlyRatedMovies as $movie)
+                    <div class="flex-shrink-0 w-48">
+                        <a href="{{ url('/movies/' . $movie->id) }}">
+                            <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-64 object-cover rounded-md mb-2">
+                            <h3 class="text-sm font-semibold text-white">{{ $movie->title }} ({{ $movie->release_date ? $movie->release_date->format('Y') : 'N/A' }})</h3>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </section>
         </div>
 </x-app-layout>
