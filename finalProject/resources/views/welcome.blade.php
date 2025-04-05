@@ -13,7 +13,7 @@
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex flex-col min-h-screen max-h-screen">
+    <body class="bg-[#0a0a0a] text-[#1b1b18] flex flex-col min-h-screen max-h-screen">
         {{-- Background Images --}}
         <div class="absolute inset-0 opacity-40 -z-10">
             <div class="flex m-0 p-0 h-full w-full">
@@ -36,7 +36,7 @@
             <nav class="flex items-center justify-end gap-4">
                 {{-- <a
                     href="{{ url('/home') }}"
-                    class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
+                    class="inline-block px-5 py-1.5 text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border border-[#3E3E3A] hover:border-[#62605b] rounded-sm text-sm leading-normal"
                 >
                     Home
                 </a> --}}
@@ -46,7 +46,7 @@
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
+                            class="inline-block px-5 py-1.5 text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border border-[#3E3E3A] hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Dashboard
                         </a>
@@ -198,7 +198,7 @@
                             type="text"
                             name="query"
                             placeholder="Search for movies..."
-                            class="text-sm md:text-md w-2/3 lg:w-full md:w-2/3 sm:w-2/3 md:p-4 rounded-md shadow-md focus:ring focus:ring-gray-900 dark:text-gray-800 dark:bg-gray-200"
+                            class="text-sm md:text-md w-2/3 lg:w-full md:w-2/3 sm:w-2/3 md:p-4 rounded-md shadow-md focus:ring focus:ring-gray-900 text-gray-800 bg-gray-200"
                         />
                         <button type="submit" class="absolute right-4 top-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -207,8 +207,8 @@
                         </button>
                     </form> --}}
                     {{-- Description --}}
-                    <div class="text-lg leading-relaxed dark:text-white dark:bg-red-700 dark:bg-opacity-90 rounded-md p-8 mt-12">
-                        <h1 class="text-xl md:text-3xl font-semibold mb-8 dark:text-white">Welcome to MovieVault!</h1>
+                    <div class="text-lg leading-relaxed text-white bg-red-700 bg-opacity-90 rounded-md p-8 mt-12">
+                        <h1 class="text-xl md:text-3xl font-semibold mb-8 text-white">Welcome to MovieVault!</h1>
                         <p class="text-sm sm:text-lg mb-4">
                             Discover, review, and organize your favorite movies. MovieVault is your personal cinema companion.
                         </p>

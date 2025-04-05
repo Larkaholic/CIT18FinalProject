@@ -6,7 +6,7 @@
                 type="text"
                 name="query"
                 placeholder="Search for movies..."
-                class="text-sm md:text-lg w-full p-3 rounded-md shadow-md focus:ring focus:ring-gray-900 dark:text-gray-800 dark:bg-gray-200"
+                class="text-sm md:text-lg w-full p-3 rounded-md shadow-md focus:ring focus:ring-gray-900 text-gray-800 bg-gray-200"
             />
             <button type="submit" class="absolute right-4 top-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-6 h-6">
@@ -15,31 +15,31 @@
             </button>
         </form>
         <br>
-        <h1 class="text-2xl font-semibold mb-4 dark:text-white">Search Results for "{{ $query }}"</h1>
+        <h1 class="text-2xl font-semibold mb-4 text-white">Search Results for "{{ $query }}"</h1>
         
         {{-- Search Results --}}
         @if ($movies->count() > 0)
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 @foreach ($movies as $movie)
-                <div class="flex border rounded-md p-4 dark:border-gray-700 dark:bg-gray-800">
+                <div class="flex border rounded-md p-4 border-gray-700 bg-gray-800">
                     <div class="w-1/4 mr-4">
                         <img src="{{ asset($movie->poster_path) }}" alt="{{ $movie->title }} Poster" class="w-full h-auto rounded-md">
                     </div>
                     <div class="w-3/4 ml-4">
-                        <h2 class="text-lg font-semibold mb-2 dark:text-white">{{ $movie->title }}  ({{ $movie->release_date ? $movie->release_date->format('Y') : 'N/A' }})</h2>
-                        <p class="text-sm dark:text-gray-300">{{ $movie->description }}</p>
+                        <h2 class="text-lg font-semibold mb-2 text-white">{{ $movie->title }}  ({{ $movie->release_date ? $movie->release_date->format('Y') : 'N/A' }})</h2>
+                        <p class="text-sm text-gray-300">{{ $movie->description }}</p>
                         <a href="{{ url('/movies/' . $movie->id) }}" class="mt-2 inline-block text-red-600 hover:underline">View Details</a>
                     </div>
                 </div>
                 @endforeach
             </div>
         @else
-            <p class="dark:text-white">No movies found.</p>
+            <p class="text-white">No movies found.</p>
         @endif
 
         {{-- Back to Top Button --}}
-        <button id="backToTopBtn" class="fixed bottom-4 right-4 bg-gray-200 dark:bg-gray-700 rounded-full p-3 shadow-md cursor-pointer hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button id="backToTopBtn" class="fixed bottom-4 right-4 bg-gray-700 rounded-full p-3 shadow-md cursor-pointer hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
             </svg>
         </button>
