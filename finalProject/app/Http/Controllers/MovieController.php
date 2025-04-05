@@ -124,6 +124,12 @@ class MovieController extends Controller
             ['user_id' => $user->id, 'movie_id' => $movie->id],
             ['rating' => $request->rating, 'review' => $request->review]
         );
+
+        // Recalculate average ratings
+        foreach (Movie::all() as $movie) {
+            $averageRating = $movie->ratings()->avg('rating');
+            $movie->update(['average_rating' => round($averageRating, 1)]);
+        }
     
         return redirect()->route('movie_details', $movie->id);
     }
