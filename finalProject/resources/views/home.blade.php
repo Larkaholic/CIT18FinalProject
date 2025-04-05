@@ -48,7 +48,7 @@
 
         {{-- Highly Rated Section --}}
         <section class="mb-8">
-            <h2 class="text-xl font-semibold mb-4 text-white">Highly Rated Movies</h2>
+            <h2 class="text-xl font-semibold mb-4 text-white">Highly-Rated Movies</h2>
             <div class="flex overflow-x-auto gap-4 scrollbar-hide">
                 @foreach ($highlyRatedMovies as $movie)
                     <div class="flex-shrink-0 w-48">
