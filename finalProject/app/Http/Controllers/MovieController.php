@@ -50,7 +50,13 @@ class MovieController extends Controller
                     ->first();
             }
 
-        return view('movie_details', compact('movie', 'isFavorite', 'isWatchlist', 'userRating'));
+        $otherRatings = Rating::where('movie_id', $movie->id)
+        ->where('user_id', '!=', Auth::id()) // Exclude current user
+        ->with('user')
+        ->latest() // Sort by most recent
+        ->get();
+
+        return view('movie_details', compact('movie', 'isFavorite', 'isWatchlist', 'userRating', 'otherRatings'));
     }
 
     public function showGenre(Request $request, $genre = null)
@@ -118,6 +124,12 @@ class MovieController extends Controller
             ['user_id' => $user->id, 'movie_id' => $movie->id],
             ['rating' => $request->rating, 'review' => $request->review]
         );
+
+        // Recalculate average ratings
+        foreach (Movie::all() as $movie) {
+            $averageRating = $movie->ratings()->avg('rating');
+            $movie->update(['average_rating' => round($averageRating, 1)]);
+        }
     
         return redirect()->route('movie_details', $movie->id);
     }

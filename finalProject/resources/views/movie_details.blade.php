@@ -124,5 +124,70 @@
                 </form>
             </div>
         </div>
+    
+        {{-- Others' Ratings --}}
+        <div>
+            <h2 class="text-2xl font-semibold mt-16 mb-4 text-white">What Others Think</h2>
+            @if ($otherRatings->isNotEmpty())
+                <ul class="space-y-6">
+                    @foreach ($otherRatings as $rating)
+                        <li class="bg-gray-800 p-4 rounded-md">
+                            <div class="flex items-center mb-2">
+                                <span class="font-semibold text-white">{{ $rating->user->name }}</span>
+                                <span class="text-gray-400 ml-2">rated it:
+                                    @php
+                                        $rating_double = $rating->rating;
+                                        if (is_int($rating_double) || floor($rating_double) == $rating_double) {
+                                            $rating_double = number_format($rating_double, 1);
+                                        }
+                                    @endphp
+
+                                    @if ($rating->rating >= 7.5)
+                                        <span class="text-green-500">{{ $rating_double }}</span>
+                                    @elseif ($rating->rating >= 6.0)
+                                        <span class="text-yellow-500">{{ $rating_double }}</span>
+                                    @else
+                                        <span class="text-red-500">{{ $rating_double }}</span>
+                                    @endif
+                                    /10
+                                </span>
+                            </div>
+                            @if ($rating->review)
+                                <p class="text-gray-300">{{ $rating->review }}</p>
+                            @else
+                                <p class="text-gray-500 italic">No review provided.</p>
+                            @endif
+                            <small class="text-gray-400 mt-2 block">Reviewed on {{ $rating->created_at->format('F j, Y') }}</small>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+                <p class="text-gray-500">No other reviews yet for this movie.</p>
+            @endif
+        </div>
+        
+        {{-- Back to Top Button --}}
+        <button id="backToTopBtn" class="fixed bottom-4 right-4 bg-gray-700 rounded-full p-3 shadow-md cursor-pointer hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
+            </svg>
+        </button>
     </div>
+
+    <script>
+        // JavaScript for Back to Top Button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("backToTopBtn").classList.remove("hidden");
+            } else {
+                document.getElementById("backToTopBtn").classList.add("hidden");
+            }
+        }
+
+        document.getElementById("backToTopBtn").addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </x-app-layout>
