@@ -9,23 +9,22 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // Popular Movies
-        $popularMovies = Movie::orderBy('average_rating', 'desc')->take(10)->get();
+        // 10 Newly Added Movies
+        $newMovies = Movie::orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
 
-        // Newly Added Movies
-        $newMovies = Movie::orderBy('created_at', 'desc')->take(10)->get();
+        // Top 10 Most Loved Movies
+        $favoriteMovies = Movie::withCount('favorites')
+            ->orderByDesc('favorites_count')
+            ->take(10)
+            ->get();
 
-        // Movies by Genre
-        $allGenres = Movie::pluck('genre')->flatMap(function ($genres) {
-            return explode(', ', $genres);
-        })->unique()->toArray();
+        // Top 10 Highly Rated Movies
+        $highlyRatedMovies = Movie::orderByDesc('average_rating')
+            ->take(10)
+            ->get();
 
-        $genreMovies = [];
-
-        foreach ($allGenres as $genre) {
-            $genreMovies[$genre] = Movie::where('genre', 'like', '%' . $genre . '%')->take(10)->get();
-        }
-
-        return view('home', compact('popularMovies', 'newMovies', 'genreMovies'));
+        return view('home', compact('favoriteMovies', 'newMovies', 'highlyRatedMovies'));
     }
 }

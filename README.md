@@ -19,3 +19,9 @@
     ```bash
     php artisan db:seed
     ```
+
+    If you want to clear and restart your database, use the  ff:
+
+    ```bash
+    php artisan migrate:fresh --seed
+    ```
