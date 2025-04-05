@@ -125,30 +125,45 @@
             </div>
         </div>
     
-            {{-- Others' Ratings --}}
-            <div>
-                <h2 class="text-2xl font-semibold mt-16 mb-4 text-white">What Others Think</h2>
-                @if ($otherRatings->isNotEmpty())
-                    <ul class="space-y-6">
-                        @foreach ($otherRatings as $rating)
-                            <li class="bg-gray-800 p-4 rounded-md">
-                                <div class="flex items-center mb-2">
-                                    <span class="font-semibold text-white">{{ $rating->user->name }}</span>
-                                    <span class="text-gray-400 ml-2">rated it: {{ $rating->rating }}/10</span>
-                                </div>
-                                @if ($rating->review)
-                                    <p class="text-gray-300">{{ $rating->review }}</p>
-                                @else
-                                    <p class="text-gray-500 italic">No review provided.</p>
-                                @endif
-                                <small class="text-gray-400 mt-2 block">Reviewed on {{ $rating->created_at->format('F j, Y') }}</small>
-                            </li>
-                        @endforeach
-                    </ul>
-                @else
-                    <p class="text-gray-500">No other reviews yet for this movie.</p>
-                @endif
-            </div>
+        {{-- Others' Ratings --}}
+        <div>
+            <h2 class="text-2xl font-semibold mt-16 mb-4 text-white">What Others Think</h2>
+            @if ($otherRatings->isNotEmpty())
+                <ul class="space-y-6">
+                    @foreach ($otherRatings as $rating)
+                        <li class="bg-gray-800 p-4 rounded-md">
+                            <div class="flex items-center mb-2">
+                                <span class="font-semibold text-white">{{ $rating->user->name }}</span>
+                                <span class="text-gray-400 ml-2">rated it:
+                                    @php
+                                        $rating_double = $rating->rating;
+                                        if (is_int($rating_double) || floor($rating_double) == $rating_double) {
+                                            $rating_double = number_format($rating_double, 1);
+                                        }
+                                    @endphp
+
+                                    @if ($rating->rating >= 7.5)
+                                        <span class="text-green-500">{{ $rating_double }}</span>
+                                    @elseif ($rating->rating >= 6.0)
+                                        <span class="text-yellow-500">{{ $rating_double }}</span>
+                                    @else
+                                        <span class="text-red-500">{{ $rating_double }}</span>
+                                    @endif
+                                    /10
+                                </span>
+                            </div>
+                            @if ($rating->review)
+                                <p class="text-gray-300">{{ $rating->review }}</p>
+                            @else
+                                <p class="text-gray-500 italic">No review provided.</p>
+                            @endif
+                            <small class="text-gray-400 mt-2 block">Reviewed on {{ $rating->created_at->format('F j, Y') }}</small>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+                <p class="text-gray-500">No other reviews yet for this movie.</p>
+            @endif
         </div>
         
         {{-- Back to Top Button --}}
