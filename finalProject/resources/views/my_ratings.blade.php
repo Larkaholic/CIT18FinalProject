@@ -58,6 +58,13 @@
                 </tbody>
             </table>
         </div>
+
+        {{-- Pagination Links --}}
+        <div class="mt-4">
+            {{ $ratingReviews->links() }}
+        </div>
+
+        {{-- No Ratings Message --}}
         @if($ratingReviews->isEmpty())
             <div class="mt-4">
                 <p class="w-full text-white indent-8">You have not rated any movies yet. Don't be afraid to give bad reviews!</p>
