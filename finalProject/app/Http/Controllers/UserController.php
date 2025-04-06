@@ -38,8 +38,8 @@ class UserController extends Controller
 
         $ratingReviews = $user->ratings()
             ->with('movie')
-            ->orderBy('created_at', 'asc')
-            ->get();
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         return view('my_ratings', compact('ratingReviews'));
     }
