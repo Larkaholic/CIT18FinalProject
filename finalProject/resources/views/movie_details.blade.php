@@ -165,6 +165,11 @@
                 <p class="text-gray-500">No other reviews yet for this movie.</p>
             @endif
         </div>
+
+        {{-- Pagination Links --}}
+        <div class="mt-4">
+            {{ $otherRatings->links() }}
+        </div>
         
         {{-- Back to Top Button --}}
         <button id="backToTopBtn" class="fixed bottom-4 right-4 bg-gray-700 rounded-full p-3 shadow-md cursor-pointer hidden">
