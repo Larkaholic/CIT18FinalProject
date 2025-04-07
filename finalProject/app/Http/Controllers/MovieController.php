@@ -54,7 +54,8 @@ class MovieController extends Controller
         ->where('user_id', '!=', Auth::id()) // Exclude current user
         ->with('user')
         ->latest() // Sort by most recent
-        ->paginate(5);
+        ->paginate(5)
+        ->fragment('ratings-section');
 
         return view('movie_details', compact('movie', 'isFavorite', 'isWatchlist', 'userRating', 'otherRatings'));
     }

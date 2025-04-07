@@ -126,7 +126,7 @@
         </div>
     
         {{-- Others' Ratings --}}
-        <div>
+        <div id="ratings-section">
             <h2 class="text-2xl font-semibold mt-16 mb-4 text-white">What Others Think</h2>
             @if ($otherRatings->isNotEmpty())
                 <ul class="space-y-6">
