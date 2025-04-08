@@ -21,7 +21,7 @@
             <h2 class="text-xl font-semibold mb-4 text-white">Newly Added Movies</h2>
             <div class="flex overflow-x-auto gap-4 
                        [&::-webkit-scrollbar]:h-1.5
-                     [&::-webkit-scrollbar-track]:bg-gray-900
+                     [&::-webkit-scrollbar-track]:bg-gray-700
                      [&::-webkit-scrollbar-thumb]:bg-gray-400
                      [&::-webkit-scrollbar-thumb:hover]:bg-gray-300
                        [&::-webkit-scrollbar-thumb:hover]:transition-all
@@ -44,7 +44,7 @@
             <h2 class="text-xl font-semibold mb-4 text-white">Most Loved Movies</h2>
             <div class="flex overflow-x-auto gap-4 
                        [&::-webkit-scrollbar]:h-1.5
-                     [&::-webkit-scrollbar-track]:bg-gray-900
+                     [&::-webkit-scrollbar-track]:bg-gray-700
                      [&::-webkit-scrollbar-thumb]:bg-gray-400
                      [&::-webkit-scrollbar-thumb:hover]:bg-gray-300
                        [&::-webkit-scrollbar-thumb:hover]:transition-all
@@ -67,7 +67,7 @@
             <h2 class="text-xl font-semibold mb-4 text-white">Highly-Rated Movies</h2>
             <div class="flex overflow-x-auto gap-4 
                        [&::-webkit-scrollbar]:h-1.5
-                     [&::-webkit-scrollbar-track]:bg-gray-900
+                     [&::-webkit-scrollbar-track]:bg-gray-700
                      [&::-webkit-scrollbar-thumb]:bg-gray-400
                      [&::-webkit-scrollbar-thumb:hover]:bg-gray-300
                        [&::-webkit-scrollbar-thumb:hover]:transition-all
