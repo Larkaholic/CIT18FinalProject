@@ -19,7 +19,15 @@
         {{-- Newly Added Movies Section --}}
         <section class="mb-8">
             <h2 class="text-xl font-semibold mb-4 text-white">Newly Added Movies</h2>
-            <div class="flex overflow-x-auto gap-4 scrollbar-hide">
+            <div class="flex overflow-x-auto gap-4 
+                       [&::-webkit-scrollbar]:h-1.5
+                     [&::-webkit-scrollbar-track]:bg-gray-900
+                     [&::-webkit-scrollbar-thumb]:bg-gray-400
+                     [&::-webkit-scrollbar-thumb:hover]:bg-gray-300
+                       [&::-webkit-scrollbar-thumb:hover]:transition-all
+                       [&::-webkit-scrollbar-thumb:hover]:duration-300
+                       [&::-webkit-scrollbar-track]:rounded-full
+                       [&::-webkit-scrollbar-thumb]:rounded-full">
                 @foreach ($newMovies as $movie)
                     <div class="flex-shrink-0 w-48">
                         <a href="{{ url('/movies/' . $movie->id) }}">
@@ -34,7 +42,15 @@
         {{-- Most Favorited Section --}}
         <section class="mb-8">
             <h2 class="text-xl font-semibold mb-4 text-white">Most Loved Movies</h2>
-            <div class="flex overflow-x-auto gap-4 scrollbar-hide">
+            <div class="flex overflow-x-auto gap-4 
+                       [&::-webkit-scrollbar]:h-1.5
+                     [&::-webkit-scrollbar-track]:bg-gray-900
+                     [&::-webkit-scrollbar-thumb]:bg-gray-400
+                     [&::-webkit-scrollbar-thumb:hover]:bg-gray-300
+                       [&::-webkit-scrollbar-thumb:hover]:transition-all
+                       [&::-webkit-scrollbar-thumb:hover]:duration-300
+                       [&::-webkit-scrollbar-track]:rounded-full
+                       [&::-webkit-scrollbar-thumb]:rounded-full">
                 @foreach ($favoriteMovies as $movie)
                     <div class="flex-shrink-0 w-48">
                         <a href="{{ url('/movies/' . $movie->id) }}">
@@ -49,7 +65,15 @@
         {{-- Highly Rated Section --}}
         <section class="mb-8">
             <h2 class="text-xl font-semibold mb-4 text-white">Highly-Rated Movies</h2>
-            <div class="flex overflow-x-auto gap-4 scrollbar-hide">
+            <div class="flex overflow-x-auto gap-4 
+                       [&::-webkit-scrollbar]:h-1.5
+                     [&::-webkit-scrollbar-track]:bg-gray-900
+                     [&::-webkit-scrollbar-thumb]:bg-gray-400
+                     [&::-webkit-scrollbar-thumb:hover]:bg-gray-300
+                       [&::-webkit-scrollbar-thumb:hover]:transition-all
+                       [&::-webkit-scrollbar-thumb:hover]:duration-300
+                       [&::-webkit-scrollbar-track]:rounded-full
+                       [&::-webkit-scrollbar-thumb]:rounded-full">
                 @foreach ($highlyRatedMovies as $movie)
                     <div class="flex-shrink-0 w-48">
                         <a href="{{ url('/movies/' . $movie->id) }}">
