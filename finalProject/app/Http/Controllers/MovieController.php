@@ -127,11 +127,10 @@ class MovieController extends Controller
         );
 
         // Recalculate average ratings
-        foreach (Movie::all() as $movie) {
-            $averageRating = $movie->ratings()->avg('rating');
-            $movie->update(['average_rating' => round($averageRating, 1)]);
+        foreach (Movie::all() as $movieAll) {
+            $averageRating = $movieAll->ratings()->avg('rating');
+            $movieAll->update(['average_rating' => round($averageRating, 1)]);
         }
-    
         return redirect()->route('movie_details', $movie->id);
     }
 }
