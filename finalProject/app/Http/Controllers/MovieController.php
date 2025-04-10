@@ -116,7 +116,7 @@ class MovieController extends Controller
     {
         $request->validate([
             'rating' => 'required|integer|min:1|max:10',
-            'review' => 'nullable|string',
+            'review' => 'nullable|string|max:1000',
         ]);
     
         $user = Auth::user();
