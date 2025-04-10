@@ -115,6 +115,15 @@
                         <label for="review" class="text-white">My Review (Optional)</label>
                         <textarea name="review" id="review" class="p-2 border rounded-md bg-gray-800 border-gray-700 text-white" maxlength="[1000]" oninput="updateReviewCount(this)">{{ old('review', $userRating->review ?? '') }}</textarea>
                         <small id="review-char-count" class="text-gray-400">0 / [1000]</small>
+
+                        {{-- Error Message --}}
+                        @error('review')
+                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                                <strong class="font-bold">Oops!</strong>
+                                <span class="block sm:inline">You put way too much thought into that. Please lessen it to below 1000 characters.</span>
+                            </div>
+                        @enderror
+
                         <button type="submit" class="p-2 border border-yellow-500 hover:bg-yellow-600 transition text-yellow-500 hover:text-white rounded-md">Edit Movie Rating</button>
                     @else
                         <label for="rating" class="text-white">My Rating (1 - 10)</label>
@@ -122,10 +131,19 @@
                         <label for="review" class="text-white">My Review (Optional)</label>
                         <textarea name="review" id="review" class="p-2 border rounded-md bg-gray-800 border-gray-700 text-white" maxlength="[1000]" oninput="updateReviewCount(this)">{{ old('review') }}</textarea>
                         <small id="review-char-count" class="text-gray-400">0 / [1000]</small>
+
+                        {{-- Error Message --}}
+                        @error('review')
+                            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                                <strong class="font-bold">Oops!</strong>
+                                <span class="block sm:inline">You put way too much thought into that. Please lessen it to below 1000 characters.</span>
+                            </div>
+                        @enderror
+                        
                         <button type="submit" class="p-2 bg-yellow-500 hover:bg-yellow-400 text-black rounded-md">Rate Movie</button>
                     @endif
 
-                    @if ($errors->any())
+                    {{-- @if ($errors->any())
                         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                             <strong class="font-bold">Oops!</strong>
                             <span class="block sm:inline">You put way too much thought into that. Please lessen it.</span>
@@ -135,7 +153,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
+                    @endif --}}
                 </form>
             </div>
         </div>
