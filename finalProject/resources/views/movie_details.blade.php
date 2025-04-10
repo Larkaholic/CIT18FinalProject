@@ -108,18 +108,33 @@
                 {{-- Rating Form --}}
                 <form id="ratingForm" class="flex flex-col gap-2" action="{{ route('rate', $movie->id) }}" method="POST">
                     @csrf
+
                     @if ($userRating)
                         <label for="rating" class="text-white">My Rating (1 - 10){{ $movie->id }}</label>
                         <input type="number" name="rating" id="rating" min="1" max="10" class="p-2 border rounded-md bg-gray-800 border-gray-700 text-white" value="{{ $userRating->rating }}">
                         <label for="review" class="text-white">My Review (Optional)</label>
-                        <textarea name="review" id="review" class="p-2 border rounded-md bg-gray-800 border-gray-700 text-white">{{ $userRating->review }}</textarea>
+                        <textarea name="review" id="review" class="p-2 border rounded-md bg-gray-800 border-gray-700 text-white" maxlength="[1000]" oninput="updateReviewCount(this)">{{ old('review', $userRating->review ?? '') }}</textarea>
+                        <small id="review-char-count" class="text-gray-400">0 / [1000]</small>
                         <button type="submit" class="p-2 border border-yellow-500 hover:bg-yellow-600 transition text-yellow-500 hover:text-white rounded-md">Edit Movie Rating</button>
                     @else
                         <label for="rating" class="text-white">My Rating (1 - 10)</label>
                         <input type="number" name="rating" id="rating" min="1" max="10" class="p-2 border rounded-md bg-gray-800 border-gray-700 text-white">
                         <label for="review" class="text-white">My Review (Optional)</label>
-                        <textarea name="review" id="review" class="p-2 border rounded-md bg-gray-800 border-gray-700 text-white"></textarea>
+                        <textarea name="review" id="review" class="p-2 border rounded-md bg-gray-800 border-gray-700 text-white" maxlength="[1000]" oninput="updateReviewCount(this)">{{ old('review') }}</textarea>
+                        <small id="review-char-count" class="text-gray-400">0 / [1000]</small>
                         <button type="submit" class="p-2 bg-yellow-500 hover:bg-yellow-400 text-black rounded-md">Rate Movie</button>
+                    @endif
+
+                    @if ($errors->any())
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">Oops!</strong>
+                            <span class="block sm:inline">You put way too much thought into that. Please lessen it.</span>
+                            <ul class="mt-2 list-disc list-inside">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     @endif
                 </form>
             </div>
@@ -180,6 +195,35 @@
     </div>
 
     <script>
+        // JavaScript for Character Limit
+        function updateReviewCount(textarea) {
+            const maxLength = 1000;
+            const currentLength = textarea.value.length;
+            const charCount = document.getElementById('review-char-count');
+
+            charCount.textContent = `${currentLength} / ${maxLength}`;
+
+            // You can add visual cues based on the count
+            if (currentLength > maxLength * 0.9) {
+                charCount.classList.remove('text-gray-400', 'text-yellow-500');
+                charCount.classList.add('text-red-500');
+            } else if (currentLength > maxLength * 0.7) {
+                charCount.classList.remove('text-red-500', 'text-gray-400');
+                charCount.classList.add('text-yellow-500');
+            } else {
+                charCount.classList.remove('text-red-500', 'text-yellow-500');
+                charCount.classList.add('text-gray-400');
+            }
+        }
+
+        // Initialize character count on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.getElementById('review');
+            if (textarea) {
+                updateReviewCount(textarea);
+            }
+        });
+
         // JavaScript for Back to Top Button
         window.onscroll = function() {scrollFunction()};
 
